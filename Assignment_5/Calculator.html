@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="script.js" type="text/js">
+    <title>Calculator</title>
+</head>
+<style>
+    *{
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntun', sans-serif;
+}
+/* .container{
+    border: 2px solid black;
+    height: 380px;
+    width:300px;
+    position: absolute;
+    top:50px;
+    left:200px;
+    background-color: rgb(182, 182, 190);
+
+
+} */
+.button{
+    padding: 8px 8px;
+    margin:4px;
+    margin-right: 8px;
+    height: 50px;
+    width: 50px;
+    background-color:black;
+    color: #fff;
+    border-radius: 50%;
+
+
+}
+.row{
+    text-align: center;
+    position: relative;
+    top:50px;
+}
+#first{
+    position: relative;
+    top:8px;
+    left:178px;
+    /* height:400px; */
+    /* padding: 4px ; */
+    block-size: 24px;
+    
+}
+#zero{
+    width: 104px;
+}
+.button:hover{
+    border-bottom: 3px solid grey;
+}
+.button{
+    border-bottom: 3px solid grey;
+    cursor:pointer;
+    opacity: 0.8;
+
+}
+.button:active{
+    opacity: 1;
+}
+input{
+    font-size: 14px;
+    padding: 19px 38px;
+}
+#equal{
+    font-size: 18px;
+    background-color: rgb(21, 193, 21);
+}
+#plus{
+    color:rgb(21, 193, 21) ;
+    font-size: 18px;
+}
+#minus{
+    color:rgb(21, 193, 21) ;
+    font-size: 18px;
+}
+#m{
+    color:rgb(21, 193, 21) ;
+    font-size: 18px;
+}
+#plus{
+    color:rgb(21, 193, 21) ;
+    font-size: 18px;
+}
+#div{
+    color:rgb(21, 193, 21) ;
+    font-size: 18px;
+}
+#per{
+    color:rgb(21, 193, 21) ;
+    font-size: 18px;
+}
+#ac{
+    color:rgb(193, 44, 21) ;
+    font-size: 18px;
+}
+#b{
+    color:rgb(21, 193, 21) ;
+    font-size: 18px;
+}
+</style>
+<body>
+    <div class="container">
+        <div id="first"><input></div>
+        <div class="row">
+            <button class="button" id="ac">AC</button>
+            <button class="button" id="b">+/-</button>
+            <button class="button" id="per">%</button>
+            <button class="button" id="div">/</button>
+        </div>
+        <div class="row">
+            <button class="button">7</button>
+            <button class="button">8</button>
+            <button class="button">9</button>
+            <button class="button" id="m">x</button>
+        </div>
+        <div class="row">
+            <button class="button">4</button>
+            <button class="button">5</button>
+            <button class="button">6</button>
+            <button class="button" id="minus">-</button>
+        </div>
+        <div class="row">
+            <button class="button">1</button>
+            <button class="button">2</button>
+            <button class="button">3</button>
+            <button class="button" id="plus">+</button>
+        </div>
+        <div class="row">
+            <button class="button" id="zero">0</button>
+            <button class="button">.</button>
+            <button class="button" id="equal">=</button>
+        </div>
+    </div>
+    <script>
+        let string = "";
+let buttons = document.getElementsByTagName('button');
+Array.from(buttons).forEach(function (button) {
+    button.addEventListener('click', function (btn) {
+        if (btn.target.innerHTML == '=') {
+
+            string = eval(string);
+            document.querySelector('input').value = string;
+        }
+        else if (btn.target.innerHTML == 'AC') {
+            string = "";
+            document.querySelector('input').value = string;
+        }
+        else {
+            console.log(btn.target)
+            string = string + btn.target.innerHTML;
+            document.querySelector('input').value = string;
+        }
+
+    })
+})
+
+
+    </script>
+</body>
+</html>
